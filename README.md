@@ -1,24 +1,9 @@
-# README
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+name	"Chunliang Liu"
+first_name	"Chunliang"
+last_name	"Liu"
+email	"Chunliang.Liu@abcam.com"
+nickname	"clliu"
+title	"Web Development Engineer"
+location	"No.1418-32 Moganshan Rd. Hangzhou, Zhejiang Prov. CHINA, Hangzhou, ,  "
+uid	"CN=Chunliang Liu,OU=Hangzhou,OU=Users,OU=AbcamAPAC,DC=abcam,DC=com"
+description	"Web Development Engineer"

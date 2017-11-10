@@ -67,6 +67,7 @@ GEM
     ffi (1.9.18)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
+    hashie (3.5.6)
     i18n (0.9.1)
       concurrent-ruby (~> 1.0)
     jbuilder (2.7.0)
@@ -86,11 +87,22 @@ GEM
     mini_portile2 (2.3.0)
     minitest (5.10.3)
     multi_json (1.12.2)
+    mysql2 (0.4.9)
+    net-ldap (0.16.1)
     nio4r (2.1.0)
     nokogiri (1.8.1)
       mini_portile2 (~> 2.3.0)
+    omniauth (1.7.1)
+      hashie (>= 3.4.6, < 3.6.0)
+      rack (>= 1.6.2, < 3)
+    omniauth-ldap (1.0.5)
+      net-ldap (~> 0.12)
+      omniauth (~> 1.0)
+      pyu-ruby-sasl (~> 0.0.3.2)
+      rubyntlm (~> 0.3.4)
     public_suffix (3.0.1)
     puma (3.10.0)
+    pyu-ruby-sasl (0.0.3.3)
     rack (2.0.3)
     rack-test (0.7.0)
       rack (>= 1.0, < 3)
@@ -122,6 +134,7 @@ GEM
     rb-inotify (0.9.10)
       ffi (>= 0.5.0, < 2)
     ruby_dep (1.5.0)
+    rubyntlm (0.3.4)
     rubyzip (1.2.1)
     sass (3.5.3)
       sass-listen (~> 4.0.0)
@@ -180,6 +193,8 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   jbuilder (~> 2.5)
   listen (>= 3.0.5, < 3.2)
+  mysql2 (>= 0.3.18, < 0.5)
+  omniauth-ldap
   puma (~> 3.7)
   rails (~> 5.1.4)
   sass-rails (~> 5.0)
@@ -193,4 +208,4 @@ DEPENDENCIES
   web-console (>= 3.3.0)
 
 BUNDLED WITH
-   1.15.4
+   1.16.0
