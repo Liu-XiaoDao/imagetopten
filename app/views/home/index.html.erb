@@ -14,7 +14,7 @@
 
 		        <div class="row">
 
-		            <div class="col-sm-6 col-md-4">
+		            <!-- <div class="col-sm-6 col-md-4">
 		                <div class="thumbnail">
 		                    <a class="lightbox" href="<%= asset_path("example/park.jpg") %>">
 		                        <%= image_tag("example/park.jpg") %>
@@ -22,9 +22,7 @@
 		                    <div class="caption">
 		                        <h3>Thumbnail label</h3>
 		                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-		                        <p id="colored-button" class="text-center">
-							        <button class="btn float-button-light waves-effect waves-button waves-float waves-light">来一票</button>
-							    </p>
+
 		                    </div>
 		                </div>
 		            </div>
@@ -63,6 +61,17 @@
 		            </div>
 		            <div class="col-sm-6 col-md-4">
 		                <div class="thumbnail">
+		                    <a class="lightbox" href="<%= asset_path("example/test.jpg") %>">
+		                        <%= image_tag("example/test.jpg") %>
+		                    </a>
+		                    <div class="caption">
+		                        <h3>Thumbnail label</h3>
+		                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+		                    </div>
+		                </div>
+		            </div>
+		            <div class="col-sm-6 col-md-4">
+		                <div class="thumbnail">
 		                    <a class="lightbox" href="<%= asset_path("example/rails.jpg") %>">
 		                        <%= image_tag("example/rails.jpg") %>
 		                    </a>
@@ -83,6 +92,41 @@
 		                    </div>
 		                </div>
 		            </div>
+		            <div class="col-sm-6 col-md-4">
+		                <div class="thumbnail">
+		                    <a class="lightbox" href="<%= asset_path("example/test.jpg") %>">
+		                        <%= image_tag("example/test.jpg") %>
+		                    </a>
+		                    <div class="caption">
+		                        <h3>Thumbnail label</h3>
+		                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+		                    </div>
+		                </div>
+		            </div>
+		            <div class="col-sm-6 col-md-4">
+		                <div class="thumbnail">
+		                    <a class="lightbox" href="<%= asset_path("example/11.jpg") %>">
+		                        <%= image_tag("example/11.jpg") %>
+		                    </a>
+		                    <div class="caption">
+		                        <h3>Thumbnail label</h3>
+		                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+		                    </div>
+		                </div>
+		            </div> -->
+					<% @images.each do |image| %>
+					    <div class="col-sm-6 col-md-4">
+			                <div class="thumbnail">
+			                    <a class="lightbox" href="<%= asset_path(image.url) %>">
+			                        <%= image_tag(image.url) %>
+			                    </a>
+			                    <div class="caption">
+			                        <h3>Thumbnail label</h3>
+			                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+			                    </div>
+			                </div>
+			            </div>
+					<% end %>
 		        </div>
 
 		    </div>
