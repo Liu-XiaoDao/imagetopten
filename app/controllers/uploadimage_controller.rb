@@ -1,5 +1,5 @@
 class UploadimageController < ApplicationController
-  layout 'uploader'
+  layout 'admin'
   def index
   end
   def new

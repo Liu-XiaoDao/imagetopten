@@ -1,12 +1,18 @@
 Rails.application.routes.draw do
-  get 'sessions/new'
 
-  get 'sessions/create'
-
-  get 'sessions/destroy'
-  post 'uploadimage/upima'
-  get 'home/index'
   resources :uploadimage
+  resources :admin
+  post '/admin/title' => 'admin#title'
+  post '/admin/describe' => 'admin#describe'
+  
+  get '/signin' => 'sessions#new'
+  get 'sessions/create'
+  delete '/signout' => 'sessions#destroy'
+  post '/uploadimage/upima' => 'uploadimage#upima'
+
+  get 'home/index'
+  get 'home/show'
+  get 'home/showimg'
 
   post "/auth/:provider/callback" => "sessions#create"
 

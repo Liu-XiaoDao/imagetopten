@@ -2,123 +2,17 @@
 		<div class="container gallery-container">
 
 		    <h1>Abcam旅游图片展</h1>
-			<div class="jq22-demo">
-			  <a href="index.html" class="current">Clean Layout</a>
-			  <a href="index2.html">Fluid Layout</a>
-			  <a href="index3.html">Grid Layout</a>
-			  <a href="index4.html">Thumbnails</a>
-			</div>
-		    <p class="page-description text-center">Thumbnails With Title And Description</p>
 		    
 		    <div class="tz-gallery">
 
 		        <div class="row">
 
-		            <!-- <div class="col-sm-6 col-md-4">
-		                <div class="thumbnail">
-		                    <a class="lightbox" href="<%= asset_path("example/park.jpg") %>">
-		                        <%= image_tag("example/park.jpg") %>
-		                    </a>
-		                    <div class="caption">
-		                        <h3>Thumbnail label</h3>
-		                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-
-		                    </div>
-		                </div>
-		            </div>
-		            <div class="col-sm-6 col-md-4">
-		                <div class="thumbnail">
-		                    <a class="lightbox" href="<%= asset_path("example/bridge.jpg") %>">
-		                        <%= image_tag("example/bridge.jpg") %>
-		                    </a>
-		                    <div class="caption">
-		                        <h3>Thumbnail label</h3>
-		                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-		                    </div>
-		                </div>
-		            </div>
-		            <div class="col-sm-6 col-md-4">
-		                <div class="thumbnail">
-		                    <a class="lightbox" href="<%= asset_path("example/tunnel.jpg") %>">
-		                        <%= image_tag("example/tunnel.jpg") %>
-		                    </a>
-		                    <div class="caption">
-		                        <h3>Thumbnail label</h3>
-		                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-		                    </div>
-		                </div>
-		            </div>
-		            <div class="col-sm-6 col-md-4">
-		                <div class="thumbnail">
-		                    <a class="lightbox" href="<%= asset_path("example/coast.jpg") %>">
-		                        <%= image_tag("example/coast.jpg") %>
-		                    </a>
-		                    <div class="caption">
-		                        <h3>Thumbnail label</h3>
-		                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-		                    </div>
-		                </div>
-		            </div>
-		            <div class="col-sm-6 col-md-4">
-		                <div class="thumbnail">
-		                    <a class="lightbox" href="<%= asset_path("example/test.jpg") %>">
-		                        <%= image_tag("example/test.jpg") %>
-		                    </a>
-		                    <div class="caption">
-		                        <h3>Thumbnail label</h3>
-		                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-		                    </div>
-		                </div>
-		            </div>
-		            <div class="col-sm-6 col-md-4">
-		                <div class="thumbnail">
-		                    <a class="lightbox" href="<%= asset_path("example/rails.jpg") %>">
-		                        <%= image_tag("example/rails.jpg") %>
-		                    </a>
-		                    <div class="caption">
-		                        <h3>Thumbnail label</h3>
-		                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-		                    </div>
-		                </div>
-		            </div>
-		            <div class="col-sm-6 col-md-4">
-		                <div class="thumbnail">
-		                    <a class="lightbox" href="<%= asset_path("example/traffic.jpg") %>">
-		                        <%= image_tag("example/traffic.jpg") %>
-		                    </a>
-		                    <div class="caption">
-		                        <h3>Thumbnail label</h3>
-		                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-		                    </div>
-		                </div>
-		            </div>
-		            <div class="col-sm-6 col-md-4">
-		                <div class="thumbnail">
-		                    <a class="lightbox" href="<%= asset_path("example/test.jpg") %>">
-		                        <%= image_tag("example/test.jpg") %>
-		                    </a>
-		                    <div class="caption">
-		                        <h3>Thumbnail label</h3>
-		                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-		                    </div>
-		                </div>
-		            </div>
-		            <div class="col-sm-6 col-md-4">
-		                <div class="thumbnail">
-		                    <a class="lightbox" href="<%= asset_path("example/11.jpg") %>">
-		                        <%= image_tag("example/11.jpg") %>
-		                    </a>
-		                    <div class="caption">
-		                        <h3>Thumbnail label</h3>
-		                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-		                    </div>
-		                </div>
-		            </div> -->
 					<% @images.each do |image| %>
 					    <div class="col-sm-6 col-md-4">
 			                <div class="thumbnail">
-			                    <a class="lightbox" href="<%= asset_path(image.url) %>">
-			                        <%= image_tag(image.url) %>
+			                    <a class="lightbox" href="<%= asset_path(image.url) %>" style="height: 250px">
+			          
+                                    <img src="<%= asset_path(image.url) %>" >
 			                    </a>
 			                    <div class="caption">
 			                        <h3>Thumbnail label</h3>

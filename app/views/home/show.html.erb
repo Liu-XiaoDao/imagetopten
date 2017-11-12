@@ -1,0 +1,40 @@
+
+<div class="menu">
+	<p class="menuc">
+		<span></span>
+		<a class="cur" href="index.html">1、默认</a>
+		<a href="index2.html">2、遮罩高度</a>
+		<a href="index3.html">3、HTML data属性</a>
+		<a href="index4.html">4、动画时间</a>
+		<a href="index5.html">5、字体颜色</a>
+		<a href="index6.html">6、背景颜色</a>
+		<a href="index7.html">7、反向</a>
+		<a href="index8.html">8、文字排版</a>
+		<a href="index9.html">9、禁用链接</a>
+	</p>
+</div>
+<div class="main">
+	<div class="mianc">
+		<h1>默认</h1>
+
+		<!-- Demo start -->
+		<div id="container">
+			<ul>
+				<% @images.each do |image| %>
+
+		            <li>
+						<a href="#">
+							<%= image_tag(image.url) %>
+
+						</a>
+					</li>
+				<% end %>
+
+				
+			</ul>
+		</div>
+		<!-- Demo end -->
+
+	</div>
+</div>
+
