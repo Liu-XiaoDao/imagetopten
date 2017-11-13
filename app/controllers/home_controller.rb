@@ -7,7 +7,13 @@ class HomeController < ApplicationController
   end
   def show
   	@images = Image.all
-
+    if signed_in?
+        return render plain: current_user.id
+    else
+      
+      return render plain: session[:username]
+    end
+    
 	  render layout: "slip"
   end
 
@@ -21,5 +27,11 @@ class HomeController < ApplicationController
     @images = Image.all
 
     render layout: "showfour"
+  end
+
+  def showfive
+    @images = Image.all
+
+    render layout: "showfive"
   end
 end

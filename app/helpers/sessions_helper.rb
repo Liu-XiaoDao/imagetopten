@@ -1,7 +1,7 @@
 module SessionsHelper
 
   def sign_in(user)
-    session[:name] = user.name
+    session[:username] = user.name
   end
 
   def signed_in?  #检测当前用户，返回是否登录
@@ -9,10 +9,10 @@ module SessionsHelper
   end
 
   def current_user   #设置并返回当前用户
-    if name = session[:name]
-      @current_user ||= User.find_by name: name  # ||= 左侧有值就用，那就不用执行右边的方法来，左边无值就在取值
-    elsif name = cookies.signed[:name]
-      user = User.find_by name: name
+    if username = session[:username]
+      @current_user ||= User.find_by name: username  # ||= 左侧有值就用，那就不用执行右边的方法来，左边无值就在取值
+    elsif username = cookies.signed[:username]
+      user = User.find_by name: username
       return nil unless user
       if user.authenticated? :remember, cookies.signed[:remember_token]
          sign_in user
@@ -25,7 +25,7 @@ module SessionsHelper
 
   def sign_out   #退出登录
     return unless signed_in?
-    session.delete :name
+    session.delete :username
     @current_user = nil
   end
 

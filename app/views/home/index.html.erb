@@ -1,11 +1,11 @@
-<!-- <style type="text/css">
+<style type="text/css">
         .main {
             -webkit-column-width: 202px;
             -moz-column-width:202px;
             column-width: 202px;
         }
 
-    </style> -->
+    </style>
     
     <style type="text/css">
         *{
@@ -31,9 +31,9 @@
             padding: 10px;
         }
     </style>
+    <a href="<%= signin_path %>">登录</a>
 
-
-    <div id="main">
+<!--     <div id="main">
         
         <% @images.each do |image| %>
             <div class="box">
@@ -42,19 +42,19 @@
                 </div>
             </div>
         <% end %>
-    </div>
+    </div> -->
 
 
 
 
     <div class="htmleaf-container">
         <div class="container gallery-container">
-            <h1>Bootstrap 3 Gallery</h1>
-            <div class="tz-gallery">
-                <div class="row">
+            <h1>2017abcam杭州旅游</h1>
+            <div class="tz-gallery main">
+                <!-- <div class="row"> -->
                     <% @images.each do |image| %>
-                        <div class="col-sm-6 col-md-4">
-                            <div class="thumbnail">
+                        <!-- <div class="col-sm-6 col-md-4"> -->
+                            <div class="thumbnail box">
                                 <a class="lightbox" href="<%= asset_path(image.url) %>">
                                     <img src="<%= asset_path(image.url) %>" alt="Park">
                                 </a>
@@ -66,9 +66,9 @@
                                 </p>
                                 </div>
                             </div>
-                        </div>
+                        <!-- </div> -->
                     <% end %>
-                </div>
+                <!-- </div> -->
 
             </div>
 

@@ -1,0 +1,97 @@
+
+        	
+        <% @images.each do |image| %>
+            <div class="item">
+                <div class="animate-box">
+                    <a href="<%= asset_path(image.url) %>" class="image-popup fh5co-board-img" title="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo, eos?"><img src="<%= asset_path(image.url) %>" alt="Free HTML5 Bootstrap template"></a>
+                </div>
+                <div class="fh5co-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo, eos?</div>
+                <p id="colored-button" class="text-center">
+                <button class="btn float-button-light waves-effect waves-button waves-float waves-light votebtn" iid="<%= image.id %>">来一票</button>
+            </p>
+            </div>
+        <% end %>
+            
+
+
+        <style>
+        #colored-button .btn {
+            color: #fff;
+        }
+        #colored-button button,
+        #colored-button button:hover {
+            background: #1bb556;
+        }
+    </style>
+
+<!--     <p id="colored-button" class="text-center">
+        <button class="btn float-button-light waves-effect waves-button waves-float waves-light">来一票</button>
+    </p> -->
+
+    <script type="text/javascript">
+        Waves.attach('.flat-buttons', ['waves-button']);
+        Waves.attach('.float-buttons', ['waves-button', 'waves-float']);
+        Waves.attach('.float-button-light', ['waves-button', 'waves-float', 'waves-light']);
+    </script>
+
+    <script type="text/javascript">
+        var currentRoute = false;
+        $(document).on('ready', function () {
+
+            // Init Waves
+            Waves.init();
+            Waves.attach('.drag-ripple', 'waves-block', true);
+            Waves.attach('#bg-pattern', null, true);
+            init();
+            $(window).on('hashchange', routing);
+            /**
+             * Example source code click
+             */
+            $('#example .top-button').on('click', function () {
+                var type = $(this).data('code');
+                $('#source-code .box .code').addClass('hide');
+                $('#source-code .box #code-' + type).removeClass('hide');
+                $('#source-code').removeClass('hide');
+                setTimeout(function () {
+                    $('#source-code').addClass('show');
+                }, 50);
+            });
+            $('#source-code .top-button').on('click', function () {
+
+                $('#source-code').removeClass('show');
+
+                setTimeout(function () {
+                    $('#source-code .box .code').addClass('hide');
+                    $('#source-code').addClass('hide');
+                }, 500);
+            });
+        });
+
+    </script>
+
+
+
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+
+              $(".votebtn").click( function () { 
+                    $.ajax({
+                        type : "POSt",
+                        url : "<%= admin_vote_path %>",
+                        data : {
+                            'id':$(this).attr('iid')
+                        },
+                        dataType : "JSON",
+                        success : function(result){
+                            if (result.status == 1) {
+                                alert(result.info);
+                            }else{
+                                alert(result.info);
+                            }
+                        }
+                    });
+              });
+        });
+
+  </script>

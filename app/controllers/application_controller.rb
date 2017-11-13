@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   include SessionsHelper
   
-  protect_from_forgery
+  # protect_from_forgery
 
   before_action :check_signed_in
 

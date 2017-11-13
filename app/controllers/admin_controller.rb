@@ -3,7 +3,12 @@ class AdminController < ApplicationController
 
   layout 'admin'
   def index
-  	@images = Image.all
+  	@images = Image.where user_id: current_user.id
+
+  end
+
+  def favorite
+    @images = current_user.images
   end
 
   def title
@@ -15,9 +20,21 @@ class AdminController < ApplicationController
 
   #投票
   def vote
-    unless signed_in?
-      image = Image.find params[:id]
-      user = current_user
+    if signed_in?
+
+      image = Image.find params[:id] #投票的图片
+      user = current_user  #当前用户
+
+      voterocerd = Voterecord.where("user_id = ? AND image_id = ?", user.id,image.id)
+      # return render json: voterocerd
+      unless voterocerd.blank?
+        return render json: '{"status":3,"info":"您已投过该图片"}'
+      end
+
+      unless user.vote > 0
+        return render json: '{"status":4,"info":"您已投过10票"}'
+      end
+
 
       voterocerd = Voterecord.new
       voterocerd.user = user
@@ -38,16 +55,23 @@ class AdminController < ApplicationController
       end
     
 
-
-
-
-
-
-
     else
       render json: '{"status":1,"info":"请登录后投票"}'
     end
      
+  end
+
+
+  def is_vote(user,image)
+      voterocerd = Voterecord.where("user_id = ? AND image_id = ?", user.id,image.id)
+      unless voterocerd
+        return false
+      end
+
+      unless user.vote > 0
+        return false
+      end
+
   end
 
 

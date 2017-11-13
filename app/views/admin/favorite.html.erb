@@ -1,0 +1,37 @@
+<% provide :c_active, "favorite" %>
+<%= stylesheet_link_tag    'webuploader/bootstrap-theme.min', media: 'all', 'data-turbolinks-track': 'reload' %>
+<%= stylesheet_link_tag    'webuploader/font-awesome.min', media: 'all', 'data-turbolinks-track': 'reload' %>
+<%= stylesheet_link_tag    'webuploader/syntax', media: 'all', 'data-turbolinks-track': 'reload' %>
+<%= stylesheet_link_tag    'webuploader/style', media: 'all', 'data-turbolinks-track': 'reload' %>
+<%= stylesheet_link_tag    'webuploader/webuploader', media: 'all', 'data-turbolinks-track': 'reload' %>
+<%= stylesheet_link_tag    'webuploader/demo', media: 'all', 'data-turbolinks-track': 'reload' %>
+
+  <div class="container" style="padding-top:70px;">
+    <div class="col-sm-12 col-md-12 center-block" style="float: none;">
+      <div class="alert alert-info">
+      	您共投票 <b><%= @images.count %></b> 张照片
+      </div>
+
+    
+      <div class="table-responsive" style="padding-top: 20px;">
+        <table class="table table-striped">
+          <thead>
+              <tr><th>ID</th><th>图片</th><th>操作</th></tr>
+          </thead>
+          <tbody>
+    			  <% @images.each do |image| %>
+    			    <tr>
+    			      <td width="5%"><%= image.id %></td>
+    			      <td width="20%"><%= image_tag(image.url,width: "50px") %></td>
+    			      <td width="20%"><%= link_to '删除', admin_path(image), method: :delete, data: { confirm: '你确定要删除吗?' } %></td>
+    			    </tr>
+    			  <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+
+
+

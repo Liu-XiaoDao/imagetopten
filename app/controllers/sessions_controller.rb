@@ -12,13 +12,19 @@ class SessionsController < ApplicationController
 
 
   def create
-    @user = User.from_omniauth(request.env["omniauth.auth"])      #这是通过ldap认证后,返回邮箱,再用邮箱找到用户,在返回用户
-    if @user
-      sign_in @user     #用户名加入session
-      redirect_to root_path
-    else
-      redirect_to signin_path
-    end
+
+    session[:username] = params[:username]
+    redirect_to root_path
+
+
+
+    # @user = User.from_omniauth(request.env["omniauth.auth"])      #这是通过ldap认证后,返回邮箱,再用邮箱找到用户,在返回用户
+    # if @user
+    #   sign_in @user     #用户名加入session
+    #   redirect_to root_path
+    # else
+    #   redirect_to signin_path
+    # end
   end
 
 

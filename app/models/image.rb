@@ -20,11 +20,6 @@ class Image < ApplicationRecord
           item.write(file.read)
         end
         self.url = "#{dir_path}/#{file_rename}"
-
-        if signed_in?
-          self.user_id = current_user.id
-        end
-
         save
     end
 end
