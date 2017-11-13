@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   resources :admin
   post '/admin/title' => 'admin#title'
   post '/admin/describe' => 'admin#describe'
+
+  post '/admin/vote' => 'admin#vote'
   
   get '/signin' => 'sessions#new'
   get 'sessions/create'
@@ -13,6 +15,7 @@ Rails.application.routes.draw do
   get 'home/index'
   get 'home/show'
   get 'home/showimg'
+  get 'home/showfour'
 
   post "/auth/:provider/callback" => "sessions#create"
 

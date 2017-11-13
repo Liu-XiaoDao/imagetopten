@@ -1,33 +1,109 @@
-	<div class="htmleaf-container">
-		<div class="container gallery-container">
+<!-- <style type="text/css">
+        .main {
+            -webkit-column-width: 202px;
+            -moz-column-width:202px;
+            column-width: 202px;
+        }
 
-		    <h1>Abcam旅游图片展</h1>
-		    
-		    <div class="tz-gallery">
+    </style> -->
+    
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+        }
 
-		        <div class="row">
+        #main{
+            position: relative;
+        }
 
-					<% @images.each do |image| %>
-					    <div class="col-sm-6 col-md-4">
-			                <div class="thumbnail">
-			                    <a class="lightbox" href="<%= asset_path(image.url) %>" style="height: 250px">
-			          
-                                    <img src="<%= asset_path(image.url) %>" >
-			                    </a>
-			                    <div class="caption">
-			                        <h3>Thumbnail label</h3>
-			                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-			                    </div>
-			                </div>
-			            </div>
-					<% end %>
-		        </div>
+        .box{
+            padding: 15px 7px 0 7px;
+            float: left;
+        }
 
-		    </div>
+        .pic{
+            border: 1px solid #dddddd;
+        }
 
-		</div>
-		
-	</div>
+        .pic img{
+            width: 165px;
+            padding: 10px;
+        }
+    </style>
+
+
+    <div id="main">
+        
+        <% @images.each do |image| %>
+            <div class="box">
+                <div class="pic">
+                    <img src="<%= asset_path(image.url) %>">
+                </div>
+            </div>
+        <% end %>
+    </div>
+
+
+
+
+    <div class="htmleaf-container">
+        <div class="container gallery-container">
+            <h1>Bootstrap 3 Gallery</h1>
+            <div class="tz-gallery">
+                <div class="row">
+                    <% @images.each do |image| %>
+                        <div class="col-sm-6 col-md-4">
+                            <div class="thumbnail">
+                                <a class="lightbox" href="<%= asset_path(image.url) %>">
+                                    <img src="<%= asset_path(image.url) %>" alt="Park">
+                                </a>
+                                <div class="caption">
+                                    <h3><%= image.title %></h3>
+                                    <p><%= image.describe %>.</p>
+                                    <p id="colored-button" class="text-center">
+                                    <button class="btn float-button-light waves-effect waves-button waves-float waves-light votebtn" iid="<%= image.id %>">来一票</button>
+                                </p>
+                                </div>
+                            </div>
+                        </div>
+                    <% end %>
+                </div>
+
+            </div>
+
+        </div>
+        
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	
 	<script type="text/javascript">
 		baguetteBox.run('.tz-gallery');
@@ -44,9 +120,9 @@
         }
     </style>
 
-    <p id="colored-button" class="text-center">
+<!--     <p id="colored-button" class="text-center">
         <button class="btn float-button-light waves-effect waves-button waves-float waves-light">来一票</button>
-    </p>
+    </p> -->
 
     <script type="text/javascript">
         Waves.attach('.flat-buttons', ['waves-button']);
@@ -88,3 +164,30 @@
         });
 
     </script>
+
+
+
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+
+              $(".votebtn").click( function () { 
+                    $.ajax({
+                        type : "POSt",
+                        url : "<%= admin_vote_path %>",
+                        data : {
+                            'id':$(this).attr('iid')
+                        },
+                        dataType : "JSON",
+                        success : function(result){
+                            if (result.status == 1) {
+                                alert(result.info);
+                            }else{
+                                alert(result.info);
+                            }
+                        }
+                    });
+              });
+        });
+
+  </script>

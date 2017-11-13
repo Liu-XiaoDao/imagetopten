@@ -1,0 +1,9 @@
+<div id="main">
+	<% @images.each do |image| %>
+		<div class="box">
+			<div class="pic">
+				<img src="<%= asset_path(image.url) %>">
+			</div>
+    	</div>
+	<% end %>
+</div>

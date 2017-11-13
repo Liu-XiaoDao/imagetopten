@@ -10,6 +10,13 @@
 	<%= csrf_meta_tags %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <%= javascript_include_tag 'home/baguetteBox.min', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'home/waves', 'data-turbolinks-track': 'reload' %>
+
+
+    <%= stylesheet_link_tag  'home/waves', media: 'all', 'data-turbolinks-track': 'reload' %>
+
 	<style>
 		.jq22-demo{ text-align: center; margin-top: 30px; }
 		.jq22-demo a{ padding-left: 20px; padding-right: 20px; }
@@ -17,5 +24,7 @@
 </head>
 <body>
     <%= yield %>
+
+    <%= javascript_include_tag 'home/pubu', 'data-turbolinks-track': 'reload' %>
 </body>
 </html>
