@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
 
-  skip_before_action :check_signed_in, only: [:index, :show, :showfive]
+  skip_before_action :check_signed_in, only: [:index, :show, :showfive, :topten]
   
   def index
   	@images = Image.all
@@ -44,5 +44,11 @@ class HomeController < ApplicationController
 
 
     render layout: "showfive"
+  end
+
+
+  def topten
+    @images = Image.order(votes: :desc).first(10)
+    render layout: false
   end
 end

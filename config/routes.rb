@@ -29,6 +29,7 @@ Rails.application.routes.draw do
   get 'home/showimg'
   get 'home/showfour'
   get 'home/showfive'
+  get 'home/topten'
 
   
   post "/auth/:provider/callback" => "sessions#create"
