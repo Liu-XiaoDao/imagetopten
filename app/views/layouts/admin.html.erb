@@ -27,18 +27,9 @@
           </div><!-- /.navbar-header -->
           <div id="navbar" class="collapse navbar-collapse">
               <ul class="nav navbar-nav navbar-right">
-                  <li class="<%= check_if_active 'zan',yield(:c_active) %>"><%= link_to  content_tag(:span, '', class: "glyphicon glyphicon-thumbs-up")+" 匿名投票",'/home/showfive', target: 'black' %></li>
-                  <li class="<%= check_if_active 'favorite',yield(:c_active) %>"><%= link_to  content_tag(:span, '', class: "glyphicon glyphicon-heart")+" 喜欢图片",admin_favorite_path %></li>
-                  <li class="<%= check_if_active 'my',yield(:c_active) %>"><%= link_to  content_tag(:span, '', class: "glyphicon glyphicon-th-list")+" 我的图片",admin_index_path %></li>
-                  <li class="<%= check_if_active 'up',yield(:c_active) %>"><%= link_to  content_tag(:span, '', class: "glyphicon glyphicon-cloud-upload")+" 上传图片",new_uploadimage_path %></li>
+                <li class="<%= check_if_active 'zan',yield(:c_active) %>"><%= link_to  content_tag(:span, '', class: "glyphicon glyphicon-thumbs-up")+" 匿名投票",'/', target: 'black' %></li>
+                <li class="<%= check_if_active 'super',yield(:c_active) %>"><%= link_to  content_tag(:span, '', class: "glyphicon glyphicon-lock")+" 管理员",supermans_path %></li>
 
-
-                  <% if  current_user.isadmin == 1 %>
-                      <li class="<%= check_if_active 'super',yield(:c_active) %>"><%= link_to  content_tag(:span, '', class: "glyphicon glyphicon-lock")+" 管理员",supermans_path %></li>
-                  <% end %>
-
-                  
-                  <li><%= link_to  content_tag(:span, '', class: "glyphicon glyphicon-log-out")+" 退出登录",signout_path,method: :delete %></li>
               </ul>
           </div>
         </div>

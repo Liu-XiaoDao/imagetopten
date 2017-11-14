@@ -1,5 +1,6 @@
 class SupermansController < ApplicationController
-  skip_before_action :check_signed_in, only: []
+  # skip_before_action :check_signed_in, only: []
+  http_basic_authenticate_with name: "Abcam", password: "Abcam123$"
 
   layout 'admin'
 
@@ -7,11 +8,6 @@ class SupermansController < ApplicationController
   	@images = Image.all
   end
 
-  def edit
-  end
-
-  def show
-  end
 
 
   def destroy
