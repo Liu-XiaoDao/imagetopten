@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get '/admin/favorite' => 'admin#favorite'
   resources :uploadimage
   resources :admin
+  resources :supermans
 
   post '/admin/title' => 'admin#title'
   post '/admin/describe' => 'admin#describe'

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171113100953) do
+ActiveRecord::Schema.define(version: 20171114050054) do
 
   create_table "images", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
     t.string "url", null: false
@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 20171113100953) do
     t.string "favoriteimg"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "isadmin", default: 0
   end
 
   create_table "voterecords", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|

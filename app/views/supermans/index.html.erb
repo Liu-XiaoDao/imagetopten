@@ -1,0 +1,113 @@
+<% provide :c_active, "super" %>
+<%= stylesheet_link_tag    'webuploader/bootstrap-theme.min', media: 'all', 'data-turbolinks-track': 'reload' %>
+<%= stylesheet_link_tag    'webuploader/font-awesome.min', media: 'all', 'data-turbolinks-track': 'reload' %>
+<%= stylesheet_link_tag    'webuploader/syntax', media: 'all', 'data-turbolinks-track': 'reload' %>
+<%= stylesheet_link_tag    'webuploader/style', media: 'all', 'data-turbolinks-track': 'reload' %>
+<%= stylesheet_link_tag    'webuploader/webuploader', media: 'all', 'data-turbolinks-track': 'reload' %>
+<%= stylesheet_link_tag    'webuploader/demo', media: 'all', 'data-turbolinks-track': 'reload' %>
+
+  <div class="container" style="padding-top:70px;">
+    <div class="col-sm-12 col-md-12 center-block" style="float: none;">
+      <div class="alert alert-info">
+      	系统共有 <b><%= @images.count %></b> 张照片
+      </div>
+
+    
+      <div class="table-responsive" style="padding-top: 20px;">
+        <table class="table table-striped">
+          <thead>
+              <tr><th>ID</th><th>图片</th><th>标题</th><th>描述</th><th>操作</th></tr>
+          </thead>
+          <tbody>
+    			  <% @images.each do |image| %>
+    			    <tr>
+    			      <td width="5%"><%= image.id %></td>
+    			      <td width="20%"><%= image_tag(image.url,width: "50px") %></td>
+                <td width="15%" class="title" iid="<%= image.id %>"><p><%= image.title %></p></td>
+                <td width="40%" class="describe" iid="<%= image.id %>"><p><%= image.describe %></p></td>
+    			      <td width="20%"><%= link_to '删除', superman_path(image), method: :delete, data: { confirm: '你确定要删除吗?' } %></td>
+    			    </tr>
+    			  <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript">
+    $(document).ready(function(){
+      $(".title").dblclick( function () { 
+        toReplace(this)  
+      });
+    });
+
+    toReplace = function(pElement) { 
+      // 创建一个input元素 
+      var invar = $("<input type='text' class='form-control' name=price' value='' required>");
+      // 把obj里面的元素以及文本内容赋值给新建的inputElement 
+      
+      invar.val($(pElement).find("p").html());
+      $(pElement).find("p").replaceWith(invar);
+      invar.focus();
+      invar.focusout(function() {
+        var invar = $("<p></p>");
+        invar.html($(this).val());
+        $(this).replaceWith(invar);
+
+
+        $.ajax({
+            type : "POST",
+            url : "<%= admin_title_path %>",
+            data : {
+                'id':$(pElement).attr('iid'),
+                'title':$(this).val()
+            },
+            dataType : "JSON",
+            success : function(result){
+
+            }
+        });
+
+
+      });
+  } 
+  </script>
+
+
+
+  <script type="text/javascript">
+    $(document).ready(function(){
+      $(".describe").dblclick( function () { 
+        todesReplace(this)  
+      });
+    });
+
+    todesReplace = function(pElement) { 
+      // 创建一个input元素 
+      var invar = $("<textarea class='form-control' rows='3'></textarea>");
+      // 把obj里面的元素以及文本内容赋值给新建的inputElement 
+      
+      invar.val($(pElement).find("p").html());
+      $(pElement).find("p").replaceWith(invar);
+      invar.focus();
+      invar.focusout(function() {
+        var invar = $("<p></p>");
+        invar.html($(this).val());
+        $(this).replaceWith(invar);
+
+
+        $.ajax({
+            type : "POST",
+            url : "<%= admin_describe_path %>",
+            data : {
+                'id':$(pElement).attr('iid'),
+                'describe':$(this).val()
+            },
+            dataType : "JSON"
+        });
+
+
+      });
+  } 
+
+
+  </script>

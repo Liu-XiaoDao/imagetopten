@@ -32,6 +32,17 @@ class HomeController < ApplicationController
   def showfive
     @images = Image.all
 
+    
+
+    if signed_in?
+  		@voterocerds = Voterecord.where("user_id = ?", current_user.id)
+        # return render plain: current_user.id
+    else
+      @voterocerds = []
+    end
+    
+
+
     render layout: "showfive"
   end
 end

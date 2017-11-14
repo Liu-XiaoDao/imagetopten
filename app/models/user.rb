@@ -21,6 +21,7 @@ class User < ApplicationRecord
       user.uid = auth.info.uid
       user.description = auth.info.description
       user.vote = 10
+      user.isadmin = 0
 
       if user.save
   			return user

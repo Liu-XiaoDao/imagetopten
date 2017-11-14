@@ -1,7 +1,7 @@
 class Image < ApplicationRecord
 
 
-  has_many :voterecords
+  has_many :voterecords, dependent: :destroy
   has_many :users, through: :voterecords
 
 

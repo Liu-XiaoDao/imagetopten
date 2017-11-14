@@ -16,7 +16,7 @@ class SessionsController < ApplicationController
 
 
     user = User.find_by name: params[:username]
-    
+
     unless user.blank?
       session[:username] = params[:username]
       redirect_to root_path
@@ -25,6 +25,7 @@ class SessionsController < ApplicationController
       user.name = params[:username]
       user.email = params[:password]
       user.vote = 10
+      user.isadmin = 0
 
       if user.save
         session[:username] = params[:username]

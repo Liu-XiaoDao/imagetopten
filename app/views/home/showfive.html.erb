@@ -10,12 +10,20 @@
                     <p><%= image.describe %></p>
                 </div>
                 <p id="colored-button" class="text-center">
-                    <button class="btn float-button-light waves-effect waves-button waves-float waves-light votebtn" iid="<%= image.id %>" >来一票</button>
+                    <% btndisabled = ''%>
+                    <% btntext = '来一票'%>
+                    <% @voterocerds.each do |voterocerd| %>
+                        <% if  image.id == voterocerd.image_id%>
+                          <% btndisabled = 'disabled'%>
+                          <% btntext = '已投'%>
+                        <% end %>
+                    <% end %>
+                    <button class="btn float-button-light waves-effect waves-button waves-float waves-light votebtn" iid="<%= image.id %>" <%= btndisabled %> ><%= btntext %></button>
                 </p>
             </div>
         <% end %>
 
-
+        
 
             
 
@@ -77,11 +85,11 @@
 
 
 
-
     <script type="text/javascript">
         $(document).ready(function(){
 
-              $(".votebtn").click( function () { 
+              $(".votebtn").click( function () {
+                    var selfbtn = $(this); 
                     $.ajax({
                         type : "POSt",
                         url : "<%= admin_vote_path %>",
@@ -93,12 +101,18 @@
                             if (result.status == 1) {
                                 alert(result.info);
                                 window.location.href='/signin'
+                            }else if(result.status == 0){
+                                alert(result.info);
+                                selfbtn.attr("disabled", true);
+                                selfbtn.html("已投");
                             }else{
                                 alert(result.info);
                             }
                         }
                     });
               });
+
+
         });
 
   </script>
