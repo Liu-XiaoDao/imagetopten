@@ -1,9 +1,8 @@
 class UploadimageController < ApplicationController
-	skip_before_action :check_signed_in, only: [:index, :upima, :new]
+	skip_before_action :check_signed_in, only: [:index, :upima, :anonymousunew]
 	
   layout 'admin'
-  def index
-  end
+
   def new
   	# if signed_in?
    #      return render plain: current_user.id
@@ -23,6 +22,11 @@ class UploadimageController < ApplicationController
     end
 
     image.avatar_upload(params[:file])
+  end
+
+
+  def anonymousunew
+    render layout: false
   end
 
 

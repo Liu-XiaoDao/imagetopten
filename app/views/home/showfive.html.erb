@@ -3,9 +3,12 @@
         <% @images.each do |image| %>
             <div class="item">
                 <div class="animate-box">
-                    <a href="<%= asset_path(image.url) %>" class="image-popup fh5co-board-img" title="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo, eos?"><img src="<%= asset_path(image.url) %>" alt="Free HTML5 Bootstrap template"></a>
+                    <a href="<%= asset_path(image.url) %>" class="image-popup fh5co-board-img" title="<%= image.describe %>"><img src="<%= asset_path(image.url) %>" alt="Free HTML5 Bootstrap template"></a>
                 </div>
-                <div class="fh5co-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo, eos?</div>
+                <div class="fh5co-desc" style="float: none;padding-bottom: 0">
+                    <p style=""><%= image.title %></p>
+                    <p><%= image.describe %></p>
+                </div>
                 <p id="colored-button" class="text-center">
                 <button class="btn float-button-light waves-effect waves-button waves-float waves-light votebtn" iid="<%= image.id %>">来一票</button>
             </p>
@@ -86,6 +89,7 @@
                         success : function(result){
                             if (result.status == 1) {
                                 alert(result.info);
+                                window.location.href='/signin'
                             }else{
                                 alert(result.info);
                             }

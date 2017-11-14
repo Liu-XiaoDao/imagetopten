@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
 
-  skip_before_action :check_signed_in, only: [:index, :show]
+  skip_before_action :check_signed_in, only: [:index, :show, :showfive]
   
   def index
   	@images = Image.all

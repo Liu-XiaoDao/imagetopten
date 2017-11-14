@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+
+  get '/uploadimage/anonymousunew' => 'uploadimage#anonymousunew'
+
   get '/admin/favorite' => 'admin#favorite'
   resources :uploadimage
   resources :admin
@@ -15,7 +18,10 @@ Rails.application.routes.draw do
   # get 'sessions/create'
 
   delete '/signout' => 'sessions#destroy'
+
+
   post '/uploadimage/upima' => 'uploadimage#upima'
+  post '/uploadimage/anonymousupima' => 'uploadimage#anonymousupima'
 
   get 'home/index'
   get 'home/show'
@@ -26,6 +32,6 @@ Rails.application.routes.draw do
   
   post "/auth/:provider/callback" => "sessions#create"
 
-  root 'home#index'
+  root 'admin#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

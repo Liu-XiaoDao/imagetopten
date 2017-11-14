@@ -13,8 +13,28 @@ class SessionsController < ApplicationController
 
   def create
 
-    session[:username] = params[:username]
-    redirect_to root_path
+
+
+    user = User.find_by name: params[:username]
+    
+    unless user.blank?
+      session[:username] = params[:username]
+      redirect_to root_path
+    else
+      user = User.new
+      user.name = params[:username]
+      user.email = params[:password]
+      user.vote = 10
+
+      if user.save
+        session[:username] = params[:username]
+        redirect_to root_path
+      else
+        return false
+      end
+    end
+
+    
 
 
 

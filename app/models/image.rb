@@ -20,6 +20,7 @@ class Image < ApplicationRecord
           item.write(file.read)
         end
         self.url = "#{dir_path}/#{file_rename}"
+        self.Votes = 0
         save
     end
 end

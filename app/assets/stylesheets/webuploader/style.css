@@ -89,7 +89,7 @@ body {
     border-width: 1px 0;
 }
 .wu-example:after {
-    content:"";
+    content:"提示:由于上传插件过大,如果点击按钮无反应,请刷新";
     position: absolute;
     top: 15px;
     left: 15px;

@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
 <meta name="description" content="此代码内容为超萌的猫头鹰登录界面" />
 <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0">
-<title>2017abcam杭州旅游</title>
+<title>2017 Abcam-杭州旅游</title>
 <!-- <link rel="stylesheet" href="css/jq22.css"> -->
 <%= stylesheet_link_tag    'login/jq22', media: 'all', 'data-turbolinks-track': 'reload' %>
 
@@ -12,12 +12,12 @@
 <body>
 <!-- begin -->
 <div style="text-align: center;">
-  <h1 style="margin-top: 40px;margin-bottom: 40px;">2017abcam杭州旅游</h1>
+  <h1 style="margin-top: 40px;margin-bottom: 40px;">2017 Abcam-杭州旅游</h1>
 </div>
 <div id="login">
     <div class="wrapper">
         <div class="login">
-            <form action="<%= signin_path %>" method="post" class="container offset1 loginform">
+            <form action="<%= signin_path %>" method="post" class="container offset1 loginform" onSubmit="return check(this);">
                 <div id="owl-login">
                     <div class="hand"></div>
                     <div class="hand hand-r"></div>
@@ -30,7 +30,7 @@
                     <input type="hidden" name="_csrf" value="9IAtUxV2CatyxHiK2LxzOsT6wtBE6h8BpzOmk=">
                     <div class="control-group">
                         <div class="controls">
-                            <label for="email" class="control-label fa fa-envelope"></label>
+                            <label for="email" class="control-label fa fa-user"></label>
                             <input id="username" type="text" name="username" placeholder="电脑登录用户名简写:clliu" tabindex="1" autofocus="autofocus" class="form-control input-medium">
                         </div>
                     </div>
@@ -58,6 +58,26 @@
         });
     });
     </script>
+
+    <script type="text/JavaScript">
+        <!--
+        function check(form){
+        //检查姓名是否填写
+        var username = form.username.value;
+        if(username.length==0){
+        alert("请填写用户名！");
+        form.username.focus();
+        return false;
+        }
+        var password = form.password.value;
+        if(password.length==0){
+        alert("请填写密码！");
+        form.password.focus();
+        return false;
+        }
+        }
+        //-->
+  </script>
 </div>
 <!-- end -->
 </body>
