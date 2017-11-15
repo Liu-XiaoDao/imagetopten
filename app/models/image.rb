@@ -22,5 +22,7 @@ class Image < ApplicationRecord
         self.url = "#{dir_path}/#{file_rename}"
         self.Votes = 0
         save
+
+        return file_path
     end
 end

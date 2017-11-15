@@ -10,6 +10,8 @@ end
 gem 'rails', '~> 5.1.4'
 gem 'omniauth-ldap'     #ldap域登陆
 gem 'mysql2', '>= 0.3.18', '< 0.5'
+gem 'dimensions', '~> 1.3'  #使用这个获取图片旋转角度
+gem "mini_magick"  #使用这个翻转图片
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Use Puma as the app server
