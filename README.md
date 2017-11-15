@@ -1,9 +1,1 @@
-name	"Chunliang Liu"
-first_name	"Chunliang"
-last_name	"Liu"
-email	"Chunliang.Liu@abcam.com"
-nickname	"clliu"
-title	"Web Development Engineer"
-location	"No.1418-32 Moganshan Rd. Hangzhou, Zhejiang Prov. CHINA, Hangzhou, ,  "
-uid	"CN=Chunliang Liu,OU=Hangzhou,OU=Users,OU=AbcamAPAC,DC=abcam,DC=com"
-description	"Web Development Engineer"
+Abcam旅游照片手机投票系统
