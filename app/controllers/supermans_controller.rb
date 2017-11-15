@@ -5,7 +5,8 @@ class SupermansController < ApplicationController
   layout 'admin'
 
   def index
-  	@images = Image.all
+    order = params[:order] ? "#{params[:order]} DESC" : "id asc"
+  	@images = Image.order(order)
   end
 
 

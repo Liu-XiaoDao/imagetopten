@@ -7,11 +7,11 @@
       	系统共有 <b><%= @images.count %></b> 张照片
       </div>
 
-    
+
       <div class="table-responsive" style="padding-top: 20px;">
         <table class="table table-striped">
           <thead>
-              <tr><th>ID</th><th>图片</th><th>Votes</th><th>操作</th></tr>
+              <tr><th><a href="/supermans">ID</a></th><th>图片</th><th><a href="?order=Votes">Votes</a></th><th>操作</th></tr>
           </thead>
           <tbody>
     			  <% @images.each do |image| %>
@@ -27,8 +27,3 @@
       </div>
     </div>
   </div>
-  
-
-
-
-  
