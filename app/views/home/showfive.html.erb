@@ -1,13 +1,12 @@
 
-        	
+
         <% @images.each do |image| %>
             <div class="item">
                 <div class="animate-box">
                     <a href="<%= asset_path(image.url) %>" class="image-popup fh5co-board-img" title="<%= image.describe %>"><img src="<%= asset_path(image.url) %>" alt="Free HTML5 Bootstrap template"></a>
                 </div>
                 <div class="fh5co-desc" style="float: none;padding-bottom: 0">
-                    <p style=""><%= image.title %></p>
-                    <p><%= image.describe %></p>
+
                 </div>
                 <p id="colored-button" class="text-center">
                     <% btndisabled = ''%>
@@ -22,10 +21,10 @@
                 </p>
             </div>
         <% end %>
-
         
 
-            
+
+
 
 
         <style>
@@ -89,7 +88,7 @@
         $(document).ready(function(){
 
               $(".votebtn").click( function () {
-                    var selfbtn = $(this); 
+                    var selfbtn = $(this);
                     $.ajax({
                         type : "POSt",
                         url : "<%= admin_vote_path %>",

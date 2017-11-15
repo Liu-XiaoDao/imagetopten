@@ -56,7 +56,7 @@
 
 	}
 
-	#screen img, canvas { 
+	#screen img, canvas {
 
 		position: absolute;
 
@@ -76,7 +76,7 @@
 
 	}
 
-	#screen .fog { 
+	#screen .fog {
 
 		position: absolute;
 
@@ -118,7 +118,7 @@
 
 	}
 
-	#bar .button { 
+	#bar .button {
 
 		position: absolute;
 
@@ -132,19 +132,19 @@
 
 	}
 
-	#bar .loaded { 
+	#bar .loaded {
 
 		background: #666;
 
 	}
 
-	#bar .viewed { 
+	#bar .viewed {
 
 		background: #fff;
 
 	}
 
-	#bar .selected { 
+	#bar .selected {
 
 		background: #f00;
 
@@ -154,7 +154,7 @@
 
 		position: absolute;
 
-		background: url(images/r.gif) no-repeat 0 4px;
+		background: url(<%= asset_path("r") %>) no-repeat 0 4px;
 
 		visibility: hidden;
 
@@ -430,7 +430,7 @@ var m3D = function () {
 
 			this.css.left   = Math.round(nw + x * p - w * .5) + 'px';
 
-			this.css.top    = Math.round(nh + y * p - h * .5) + 'px';  
+			this.css.top    = Math.round(nh + y * p - h * .5) + 'px';
 
 			this.css.width  = Math.round(w) + 'px';
 
@@ -540,7 +540,7 @@ var m3D = function () {
 
 		/* ---- loading images ---- */
 
-		var i = 0, 
+		var i = 0,
 
 		    o,
 
@@ -600,7 +600,7 @@ var m3D = function () {
 
 		} else if (camera.ty) {
 
-			if (!camera.s) camera.setTarget(camera.y, camera.ty); 
+			if (!camera.s) camera.setTarget(camera.y, camera.ty);
 
 			var m = camera.tween('y');
 
@@ -709,7 +709,7 @@ var m3D = function () {
 </div>
 
 
-
+<script src="http://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
 <script type="text/javascript">
 
 /* ==== start script ==== */
@@ -718,7 +718,7 @@ setTimeout(function() {
 
 	m3D.init(
 
-		[ 
+		[
 
 			<% @images.each do |image| %>
 			    { src: '<%= asset_path(image.url) %>' },
@@ -728,11 +728,53 @@ setTimeout(function() {
 
 	);
 
+	var images = document.getElementsByTagName("canvas");
+	// for(var i=0;i<images.length;i++){
+	//  	$(images[i]).click();
+	// }
+
+	// $("canvas").each(function(){
+	//   $(this).delay(100).click();
+	// });
+	var i = 0;
+	$(images[i]).click();
+	i++;
+	setInterval(function(){
+		$(images[i]).click();
+		i++;
+		if (i == 10) {
+			i = 0;
+		}
+	},3000);
+
+
 }, 500);
+
+
+
+
+// setTimeout(function() {
+//
+// 	var images = document.getElementsByTagName("canvas");
+// 	// for(var i=0;i<images.length;i++){
+// 	//  	$(images[i]).click();
+// 	// }
+//
+// 	// $("canvas").each(function(){
+// 	//   $(this).delay(100).click();
+// 	// });
+// 	var i = 0;
+// 	$(images[i]).click();
+// 	i++;
+// 	setInterval(function(){
+// 		$(images[i]).click();
+// 		i++;
+// 	},2000);
+//
+// }, 500);
 
 </script>
 
 </body>
 
 </html>
-

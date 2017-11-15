@@ -82,7 +82,7 @@ jQuery(function() {
 
         chunked: true,
         // server: 'http://webuploader.duapp.com/server/fileupload.php',
-        server: 'http://image.liuxiaodao.top/uploadimage/upima',
+        server: '/uploadimage/upima',
         fileNumLimit: 300,
         fileSizeLimit: 200 * 1024 * 1024,    // 200 M
         fileSingleSizeLimit: 50 * 1024 * 1024    // 50 M
