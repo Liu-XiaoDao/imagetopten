@@ -49,14 +49,8 @@ class HomeController < ApplicationController
       end
     end
 
-
-  
     @images = Image.all
-
-
   	@voterocerds = Voterecord.where("user_id = ?", user.id)
-
-    
     render layout: "showfive"
   end
 
