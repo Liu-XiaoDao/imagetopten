@@ -7,6 +7,9 @@ ee https://help.github.com/articles/ignoring-files for more about ignoring files
 # Ignore bundler config.
 /.bundle
 
+# 忽略上传的图片
+/public/images
+
 # Ignore all logfiles and tempfiles.
 /log/*
 /tmp/*
@@ -30,4 +33,3 @@ ee https://help.github.com/articles/ignoring-files for more about ignoring files
 # Ignore all ~ file
 .*~
 *~
-
