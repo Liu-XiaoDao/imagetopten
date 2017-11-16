@@ -23,6 +23,19 @@ class Image < ApplicationRecord
         self.Votes = 0
         save
 
-        return file_path
+
+puts File.extname(file.original_filename)
+        if File.extname(file.original_filename) == '.png'
+          puts '-------------------'
+        else
+          angle = Dimensions.angle(file_path)
+          image = MiniMagick::Image.new(file_path)
+          image.combine_options do |b|
+            b.rotate angle
+          end # the command gets executed
+          image.draw 'text 20,20 "Abcam-HangZhou-2017"'
+        end
+
+
     end
 end

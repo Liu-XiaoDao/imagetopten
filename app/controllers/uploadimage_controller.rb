@@ -10,22 +10,9 @@ class UploadimageController < ApplicationController
 
   def upima
   	image = Image.new
-    f = image.avatar_upload(params[:file])
+    image.avatar_upload(params[:file])
 
 
-		puts Dimensions.angle(f)
-
-		angle = Dimensions.angle(f)
-		image = MiniMagick::Image.new(f)
-
-		puts angle
-		image.combine_options do |b|
-		  b.rotate angle
-		end # the command gets executed
-
-
-
-		render plain: Dimensions.angle(f)
   end
 
 
