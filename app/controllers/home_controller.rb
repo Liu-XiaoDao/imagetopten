@@ -1,7 +1,7 @@
 class HomeController < ApplicationController
 
   # skip_before_action :check_signed_in, only: [:index, :show, :showfive, :topten]
-  
+
   # def index
   # 	@images = Image.all
   # end
@@ -11,10 +11,10 @@ class HomeController < ApplicationController
   #   if signed_in?
   #       return render plain: current_user.id
   #   else
-      
+
   #     return render plain: session[:username]
   #   end
-    
+
 	 #  render layout: "slip"
   # end
 
@@ -49,11 +49,34 @@ class HomeController < ApplicationController
       end
     end
 
-    @images = Image.all
+    @images = Image.order(Votes: :desc).order(created_at: :desc).shuffle
   	@voterocerds = Voterecord.where("user_id = ?", user.id)
     render layout: "showfive"
   end
 
+  def showsix
+    session[:ip] = request.remote_ip
+
+    user = User.find_by name: request.remote_ip
+
+    unless user.blank?
+      session[:ip] = request.remote_ip
+    else
+      user = User.new
+      user.name = request.remote_ip
+      user.email = request.remote_ip
+      user.vote = 10
+      if user.save
+        session[:ip] = request.remote_ip
+      else
+        redirect_to root_path
+      end
+    end
+
+    @images = Image.order(Votes: :desc).order(created_at: :desc)
+  	@voterocerds = Voterecord.where("user_id = ?", user.id)
+    render layout: "showfive"
+  end
 
   def topten
     @images = Image.order(votes: :desc).first(10)

@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   post '/admin/vote' => 'admin#vote'
 
   # get '/admin/favorite' => 'admin#favorite'
-  
+
   # get '/signin' => 'sessions#new'
   # post '/signin' => 'sessions#create'
 
@@ -31,7 +31,9 @@ Rails.application.routes.draw do
   # get 'home/showfive'
   get 'home/topten'
 
-  
+  get 'home/showsix'
+
+
   # post "/auth/:provider/callback" => "sessions#create"
 
   root 'home#showfive'

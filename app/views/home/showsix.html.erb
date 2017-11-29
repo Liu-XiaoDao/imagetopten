@@ -3,7 +3,10 @@
         <% @images.each do |image| %>
             <div class="item">
                 <div class="animate-box">
-                    <a href="<%= asset_path(image.url) %>" class="image-popup fh5co-board-img" title="<%= image.describe %>"><img src="<%= asset_path(image.url) %>" alt="Free HTML5 Bootstrap template"></a>
+                    <a href="<%= asset_path(image.url) %>" class="image-popup fh5co-board-img" title="<%= image.describe %>">
+                      <img src="<%= asset_path(image.url) %>" alt="Free HTML5 Bootstrap template">
+                      <!-- <canvas id="myCanvas" style="width: 100%">your browser does not support the canvas tag </canvas> -->
+                    </a>
                 </div>
                 <div class="fh5co-desc" style="float: none;padding-bottom: 0">
 
@@ -21,6 +24,11 @@
                 </p>
             </div>
         <% end %>
+
+
+
+
+
 
 
 

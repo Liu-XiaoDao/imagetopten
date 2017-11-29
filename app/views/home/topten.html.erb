@@ -422,9 +422,9 @@ var m3D = function () {
 
 			var p = camera.fov / z;
 
-			var w = this.w * p;
+			var w = this.w * p * 0.5;
 
-			var h = this.h * p;
+			var h = this.h * p * 0.5;
 
 			/* ---- HTML rendering ---- */
 
